@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharpMind Web Works  - Web, AI, Software & Resume Solutions</title>
+    <meta name="description" content="SharpMind Web Works  - We build final year projects, websites, AI/ML solutions, ATS-friendly resumes, and software for students and businesses.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #101826;
+            --bg-tertiary: #1a2235;
+            --text-primary: #f0f6fc;
+            --text-secondary: #c9d1d9;
+            --accent-blue: #4dabf7;
+            --accent-green: #40c057;
+            --accent-purple: #9775fa;
+            --accent-orange: #ffa94d;
+            --accent-red: #ff6b6b;
+            --accent-gold: #ffd43b;
+            --border-color: #2d374d;
+            --header-height: 80px;
+            --section-spacing: 120px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(16, 24, 38, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(10, 14, 23, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(15deg);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent-blue);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-blue);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Hero Section with Coding Background */
+        .hero {
+            padding: 180px 0 120px;
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: 
+                linear-gradient(rgba(10, 14, 23, 0.85), rgba(16, 24, 38, 0.9)),
+                url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(77, 171, 247, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(77, 171, 247, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background-color: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s, box-shadow 0.4s;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        
+        /* Resume Service Section */
+        .resume-service {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin-top: 50px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume-service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
+        }
+        
+        .resume-icon {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .resume-service h3 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+        
+        .resume-service p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        .feature-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Technology Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .tech-item {
+            background-color: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .tech-item:hover::before {
+            left: 100%;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            border-color: var(--accent-red);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+        
+        .tech-item h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            background-color: var(--bg-tertiary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 14, 23, 0.95));
+            padding: 25px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 35px 30px;
+            position: relative;
+            border-left: 5px solid var(--accent-blue);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: var(--accent-blue);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        .contact-card a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 70px 0 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--bg-tertiary);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(77, 171, 247, 0.3);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                background-color: var(--bg-secondary);
+                flex-direction: column;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                border-top: 1px solid var(--border-color);
+                gap: 25px;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .resume-service {
+                padding: 40px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid, .portfolio-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-code"></i></div>
+                <div class="logo-text">SharpMind</div>
+            </a>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1 class="floating">Transforming Ideas Into Digital Reality</h1>
+            <p>We build innovative web solutions, AI/ML applications, ATS-friendly resumes, and software for students and businesses. From concept to deployment, we bring your ideas to life.</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions tailored to your specific needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Student Projects</h3>
+                    <p>Expert assistance with final year projects, research papers, and academic assignments. We help students achieve academic excellence with cutting-edge solutions.</p>
+                    <a href="#contact" class="cta-button">Get Help</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Responsive, modern websites and web applications built with the latest technologies. We create digital experiences that engage and convert.</p>
+                    <a href="#contact" class="cta-button">Build Website</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI/ML Solutions</h3>
+                    <p>Custom AI models, machine learning applications, and data analytics solutions. We harness the power of AI to solve complex business problems.</p>
+                    <a href="#contact" class="cta-button">Explore AI</a>
+                </div>
+            </div>
+            
+            <!-- ATS Resume Service -->
+            <div class="resume-service">
+                <div class="resume-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>ATS-Friendly Resume Building</h3>
+                <p>Get professionally crafted resumes optimized for Applicant Tracking Systems (ATS). We ensure your resume stands out to both automated systems and human recruiters.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-check-circle"></i> ATS Optimization</h4>
+                        <p>Keywords and formatting that pass through automated screening systems</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-check-circle"></i> Professional Design</h4>
+                        <p>Clean, modern layouts that impress recruiters</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-check-circle"></i> Industry Specific</h4>
+                        <p>Tailored to your target industry and job role</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-check-circle"></i> Quick Turnaround</h4>
+                        <p>Get your resume ready in 24-48 hours</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <a href="#contact" class="cta-button" style="background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));">Get Your Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technologies We Use</h2>
+                <p>We leverage cutting-edge tools and frameworks to deliver exceptional results</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-js"></i></div>
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-react"></i></div>
+                    <h4>React</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-angular"></i></div>
+                    <h4>Angular</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                    <h4>Node.js</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                    <h4>TensorFlow</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h4>PyTorch</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    <h4>SQL</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-microsoft"></i></div>
+                    <h4>ASP.NET</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Spring Boot</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>Explore our recent projects across different domains</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Chatbot" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>AI-Powered Chatbot</h3>
+                        <p>Intelligent chatbot using NLP and machine learning for customer service automation.</p>
+                        <a href="#contact" class="cta-button">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-Commerce Platform" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-featured online store with payment integration and inventory management.</p>
+                        <a href="#contact" class="cta-button">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Resume Builder" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>ATS Resume Builder</h3>
+                        <p>Custom resume building platform with ATS optimization features.</p>
+                        <a href="#contact" class="cta-button">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about working with us</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"SharpMind Web Works  delivered an exceptional AI project for my final year. Their team was knowledgeable and met all deadlines. Highly recommended for students!"</p>
+                    <h3>- Rahul, Computer Science Student</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"We needed a custom web application for our business, and SharpMind Web Works  exceeded our expectations. Professional, responsive, and delivered ahead of schedule."</p>
+                    <h3>- Priya, Business Owner</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The ATS-friendly resume they created helped me land interviews at top tech companies. Their attention to detail is impressive!"</p>
+                    <h3>- Anjali, Job Seeker</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss your project requirements</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp contact-icon"></i>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/916364115614" target="_blank">+91 6364115614</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:sharpmind031516@gmail.com">sharpmind031516@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3>Location</h3>
+                    <p>India - Serving Clients Worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-code"></i></div>
+                    <div class="logo-text">SharpMind Web Works </div>
+                </a>
+                <p>Transforming ideas into digital reality with cutting-edge technology</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1GGnCnaoy7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/sharpmind367?igsh=MWhyanNhcW83YjRwNQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a> -->
+                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 SharpMind Web Works . All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Technology highlight effect on hover
+        document.querySelectorAll('.tech-item').forEach(tech => {
+            tech.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 10px 20px rgba(255, 107, 107, 0.4)';
+                this.style.borderColor = 'var(--accent-red)';
+            });
+            
+            tech.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+                this.style.borderColor = 'var(--border-color)';
+            });
+        });
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
